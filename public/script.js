@@ -10,6 +10,17 @@ function safe(value, fallback = '-') {
   return value === null || value === undefined || value === '' ? fallback : value;
 }
 
+const categoryArt = {
+  electronics: '/images/headphones.svg',
+  clothing: '/images/fashion.svg',
+  appliances: '/images/appliance.svg'
+};
+
+function pickImageByCategory(category) {
+  const key = String(category || '').toLowerCase();
+  return categoryArt[key] || '/images/headphones.svg';
+}
+
 function fillMetrics(products, lowStockData) {
   const variantCount = products.reduce((sum, product) => sum + (product.variants?.length || 0), 0);
   const ratings = products.map((p) => p.avgRating).filter((r) => typeof r === 'number');
@@ -21,10 +32,27 @@ function fillMetrics(products, lowStockData) {
   document.getElementById('metricRating').textContent = average;
 }
 
+function fillGallery(products) {
+  const gallery = document.getElementById('categoryGallery');
+  const uniqueCategories = [...new Set(products.map((p) => p.category))];
+
+  gallery.innerHTML = uniqueCategories
+    .map(
+      (category) => `
+      <article class="gallery-card">
+        <img src="${pickImageByCategory(category)}" alt="${category} catalog visual" />
+        <p class="gallery-label">${category}</p>
+      </article>
+    `
+    )
+    .join('');
+}
+
 function fillFeatured(featured) {
   document.getElementById('featuredName').textContent = safe(featured.name, 'No product');
   document.getElementById('featuredCategory').textContent = safe(featured.category);
   document.getElementById('featuredRating').textContent = `Rating: ${safe(featured.avgRating)}`;
+  document.getElementById('featuredImage').src = pickImageByCategory(featured.category);
 
   const variantRows = document.getElementById('variantRows');
   variantRows.innerHTML = '';
@@ -82,6 +110,7 @@ function fillLowStock(lowStockData) {
       .join('<br />');
 
     el.innerHTML = `
+      <img class="item-thumb" src="${pickImageByCategory(product.category)}" alt="${product.name} visual" />
       <p class="item-title">${product.name}</p>
       <p class="item-sub">${safe(product.category)}</p>
       <p class="item-sub">${variants}</p>
@@ -138,6 +167,7 @@ async function loadDemo() {
     const featured = products.find((item) => item.name === 'Premium Headphones') || products[0] || {};
 
     fillMetrics(products, lowStock);
+    fillGallery(products);
     fillFeatured(featured);
     fillLowStock(lowStock);
     fillCategoryRatings(ratings);

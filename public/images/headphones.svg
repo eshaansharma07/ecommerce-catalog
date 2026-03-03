@@ -1,0 +1,21 @@
+<svg width="1200" height="800" viewBox="0 0 1200 800" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1200" y2="800" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#0f172a"/>
+      <stop offset="1" stop-color="#1d4ed8"/>
+    </linearGradient>
+    <linearGradient id="shine" x1="330" y1="140" x2="870" y2="640" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#22d3ee"/>
+      <stop offset="1" stop-color="#a7f3d0"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="800" rx="34" fill="url(#bg)"/>
+  <circle cx="190" cy="130" r="90" fill="#38bdf8" fill-opacity="0.25"/>
+  <circle cx="1020" cy="660" r="120" fill="#67e8f9" fill-opacity="0.15"/>
+  <path d="M380 420C380 298 479 200 600 200C721 200 820 298 820 420" stroke="url(#shine)" stroke-width="42" stroke-linecap="round"/>
+  <rect x="340" y="410" width="140" height="220" rx="46" fill="#0ea5e9"/>
+  <rect x="720" y="410" width="140" height="220" rx="46" fill="#06b6d4"/>
+  <rect x="372" y="452" width="76" height="140" rx="28" fill="#f8fafc" fill-opacity="0.9"/>
+  <rect x="752" y="452" width="76" height="140" rx="28" fill="#f8fafc" fill-opacity="0.9"/>
+  <text x="70" y="728" fill="#e0f2fe" font-family="Arial, sans-serif" font-size="64" font-weight="700">PREMIUM AUDIO</text>
+</svg>

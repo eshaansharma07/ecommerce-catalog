@@ -18,12 +18,15 @@
 
     <main class="page">
       <header class="hero reveal">
-        <p class="badge">MongoDB + Mongoose Lab</p>
-        <h1>E-commerce Catalog Analytics</h1>
-        <p class="subtitle">
-          Nested schemas with variants and reviews, aggregation pipelines, and stock operations shown in a clean,
-          project-demo ready interface.
-        </p>
+        <div>
+          <p class="badge">MongoDB + Mongoose Lab</p>
+          <h1>E-commerce Catalog Analytics</h1>
+          <p class="subtitle">
+            Nested schemas with variants and reviews, aggregation pipelines, and stock operations shown in a clean,
+            project-demo ready interface.
+          </p>
+        </div>
+        <img src="/images/headphones.svg" alt="Premium headphones showcase" class="hero-image" />
       </header>
 
       <section class="metrics reveal delay-1" id="metrics">
@@ -45,15 +48,21 @@
         </article>
       </section>
 
+      <section class="gallery reveal delay-2" id="categoryGallery"></section>
+
       <section class="grid reveal delay-2">
         <article class="panel span-2" id="featuredPanel">
           <div class="panel-head">
             <h2>Featured Product</h2>
             <span class="chip" id="featuredCategory">-</span>
           </div>
+
           <div class="product-topline">
-            <h3 id="featuredName">Loading...</h3>
-            <p id="featuredRating" class="rating-pill">Rating: -</p>
+            <div>
+              <h3 id="featuredName">Loading...</h3>
+              <p id="featuredRating" class="rating-pill">Rating: -</p>
+            </div>
+            <img src="/images/headphones.svg" alt="Featured product" id="featuredImage" class="product-image" />
           </div>
 
           <h4>Variants</h4>
