@@ -3,29 +3,108 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>E-commerce Catalog Demo</title>
+    <title>E-commerce Catalog Dashboard</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <main class="layout">
-      <section class="hero">
-        <h1>E-commerce Catalog</h1>
-        <p>Nested schemas, aggregation queries, indexes, and stock management with MongoDB + Mongoose.</p>
+    <div class="bg-orb orb-a"></div>
+    <div class="bg-orb orb-b"></div>
+
+    <main class="page">
+      <header class="hero reveal">
+        <p class="badge">MongoDB + Mongoose Lab</p>
+        <h1>E-commerce Catalog Analytics</h1>
+        <p class="subtitle">
+          Nested schemas with variants and reviews, aggregation pipelines, and stock operations shown in a clean,
+          project-demo ready interface.
+        </p>
+      </header>
+
+      <section class="metrics reveal delay-1" id="metrics">
+        <article class="metric-card">
+          <p class="metric-label">Products</p>
+          <h3 id="metricProducts">0</h3>
+        </article>
+        <article class="metric-card">
+          <p class="metric-label">Variants</p>
+          <h3 id="metricVariants">0</h3>
+        </article>
+        <article class="metric-card">
+          <p class="metric-label">Low Stock Variants</p>
+          <h3 id="metricLowStock">0</h3>
+        </article>
+        <article class="metric-card">
+          <p class="metric-label">Avg Rating</p>
+          <h3 id="metricRating">-</h3>
+        </article>
       </section>
 
-      <section class="card">
-        <h2>Expected Product Output</h2>
-        <pre id="productOutput">Loading...</pre>
+      <section class="grid reveal delay-2">
+        <article class="panel span-2" id="featuredPanel">
+          <div class="panel-head">
+            <h2>Featured Product</h2>
+            <span class="chip" id="featuredCategory">-</span>
+          </div>
+          <div class="product-topline">
+            <h3 id="featuredName">Loading...</h3>
+            <p id="featuredRating" class="rating-pill">Rating: -</p>
+          </div>
+
+          <h4>Variants</h4>
+          <div class="table-wrap">
+            <table>
+              <thead>
+                <tr>
+                  <th>SKU</th>
+                  <th>Color</th>
+                  <th>Price</th>
+                  <th>Stock</th>
+                </tr>
+              </thead>
+              <tbody id="variantRows"></tbody>
+            </table>
+          </div>
+
+          <h4>Reviews</h4>
+          <div id="reviewsList" class="review-list"></div>
+        </article>
+
+        <article class="panel">
+          <div class="panel-head">
+            <h2>Low Stock Alerts</h2>
+            <span class="chip warning">threshold &lt; 10</span>
+          </div>
+          <div id="lowStockCards" class="stack"></div>
+        </article>
+
+        <article class="panel">
+          <div class="panel-head">
+            <h2>Category Ratings</h2>
+            <span class="chip">aggregated</span>
+          </div>
+          <div id="ratingBars" class="stack"></div>
+        </article>
       </section>
 
-      <section class="card">
-        <h2>Aggregation Result: Low Stock Products</h2>
-        <pre id="lowStockOutput">Loading...</pre>
-      </section>
+      <section class="grid reveal delay-3">
+        <article class="panel span-2 mono-panel">
+          <h2>Expected Output JSON</h2>
+          <pre id="productOutput">Loading...</pre>
+        </article>
 
-      <section class="card">
-        <h2>Aggregation Result: Category Ratings</h2>
-        <pre id="ratingsOutput">Loading...</pre>
+        <article class="panel mono-panel">
+          <h2>Aggregation JSON</h2>
+          <h4>Low Stock</h4>
+          <pre id="lowStockOutput">Loading...</pre>
+          <h4>Category Ratings</h4>
+          <pre id="ratingsOutput">Loading...</pre>
+        </article>
       </section>
     </main>
 
